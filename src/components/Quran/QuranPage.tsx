@@ -28,16 +28,20 @@ const QuranPage: React.FC = () => {
    }
 
    return (
-     <div>
-       <h1>Surahs</h1>
-       <ul>
-         {surahs.map((surah: Surah) => (
-           <li key={surah.number}>
-             {surah.number}. {surah.englishName} - {surah.englishNameTranslation}
-           </li>
-         ))}
-       </ul>
-     </div>
+      <div>
+         <h1>Surahs</h1>
+         {surahs && surahs.length > 0 ? (
+           <ul>
+             {surahs.map((surah) => (
+               <li key={surah.number}>
+                 {surah.number}. {surah.englishName} - {surah.englishNameTranslation}
+               </li>
+             ))}
+           </ul>
+         ) : (
+           <p>No surahs found or still loading...</p>
+         )}
+       </div>
    );
 };
 
